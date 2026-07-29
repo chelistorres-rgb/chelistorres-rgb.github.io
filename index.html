@@ -560,7 +560,7 @@ if (cajaPregunta && CONFIG.preguntas.length) {
 const formulario = document.getElementById('formulario');
 if (formulario) {
   formulario.addEventListener('submit', e => {
-    e.preventDefault();
+    // e.preventDefault();
     const nombre  = document.getElementById('nombre').value.trim();
     const interes = document.getElementById('interes').value;
     const mensaje = document.getElementById('mensaje').value.trim();
