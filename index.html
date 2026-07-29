@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     EDITA AQUÍ: título y descripción que aparecen en Google
+     ============================================================ -->
+<title>Chelis Torres | Psicoterapia, cursos y talleres</title>
+<meta name="description" content="Consulta psicológica individual, cursos y talleres de habilidades blandas en Zapopan, Jalisco y en línea. Escríbeme por WhatsApp.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   PALETA Y TIPOGRAFÍA — cambia un color aquí y cambia en toda la página
+   ============================================================ */
+:root{
+  --niebla:#E6E9E3;      /* fondo general */
+  --bruma:#F7F8F5;       /* tarjetas */
+  --tinta:#17231F;       /* texto principal */
+  --tinta-suave:#4C5B55; /* texto secundario */
+  --pino:#2A5347;        /* color de marca, secciones oscuras */
+  --laton:#A97430;       /* acento, se usa poco a propósito */
+  --wa:#128C4A;          /* verde de WhatsApp */
+  --linea:#C9CFC5;
+
+  --display:'Spectral', Georgia, serif;
+  --texto:'Karla', system-ui, -apple-system, sans-serif;
+
+  --ancho:1120px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--niebla);
+  color:var(--tinta);
+  font-family:var(--texto);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.envoltura{max-width:var(--ancho);margin:0 auto;padding:0 24px}
+
+/* --- etiquetas pequeñas --- */
+.etiqueta{
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:700;color:var(--laton);
+}
+
+/* --- botones --- */
+.boton{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--texto);font-size:16px;font-weight:700;
+  padding:15px 26px;border:none;border-radius:2px;
+  cursor:pointer;text-decoration:none;
+  transition:transform .18s ease, background .18s ease;
+}
+.boton:hover{transform:translateY(-2px)}
+.boton:focus-visible{outline:3px solid var(--laton);outline-offset:3px}
+.boton--wa{background:var(--wa);color:#fff}
+.boton--wa:hover{background:#0f7a40}
+.boton--linea{background:transparent;color:var(--pino);border:1.5px solid var(--pino)}
+.boton--linea:hover{background:var(--pino);color:var(--niebla)}
+.icono-wa{width:20px;height:20px;fill:currentColor;flex-shrink:0}
+
+/* ============================================================
+   BARRA SUPERIOR
+   ============================================================ */
+.barra{
+  position:sticky;top:0;z-index:50;
+  background:rgba(230,233,227,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--linea);
+}
+.barra .envoltura{
+  display:flex;align-items:center;justify-content:space-between;
+  min-height:68px;gap:16px;
+}
+.marca{font-family:var(--display);font-size:19px;font-weight:600;text-decoration:none;line-height:1.2}
+.marca span{display:block;font-family:var(--texto);font-size:11px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-suave)}
+.menu{display:flex;align-items:center;gap:28px}
+.menu a{font-size:15px;text-decoration:none;color:var(--tinta-suave);font-weight:500}
+.menu a:hover{color:var(--pino)}
+.menu .boton{padding:11px 20px;font-size:15px}
+@media(max-width:820px){ .menu a:not(.boton){display:none} }
+
+/* ============================================================
+   PORTADA
+   ============================================================ */
+.portada{padding:72px 0 88px}
+.portada .envoltura{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;
+}
+.pregunta-caja{min-height:230px;display:flex;align-items:center;margin:22px 0 4px}
+.pregunta{
+  font-family:var(--display);font-style:italic;font-weight:300;
+  font-size:clamp(30px,4.6vw,52px);line-height:1.22;
+  color:var(--pino);
+  transition:opacity .6s ease;
+}
+.pregunta::before{content:'«';color:var(--laton);font-style:normal;margin-right:6px}
+.pregunta::after{content:'»';color:var(--laton);font-style:normal;margin-left:4px}
+.portada p.entrada{
+  font-size:19px;color:var(--tinta-suave);max-width:46ch;margin-bottom:30px;
+}
+.acciones{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.nota-respuesta{font-size:14px;color:var(--tinta-suave)}
+
+/* --- retrato --- */
+.retrato{position:relative}
+.retrato figure{
+  position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2px;
+  background:var(--pino);
+}
+.retrato img{width:100%;height:100%;object-fit:cover}
+.retrato .marco{
+  position:absolute;inset:18px -18px -18px 18px;
+  border:1.5px solid var(--laton);border-radius:2px;z-index:-1;
+}
+.sin-foto{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:24px;color:#D8E0DA;font-size:14px;line-height:1.5;
+}
+.sin-foto strong{display:block;font-family:var(--display);font-size:19px;margin-bottom:8px;color:#fff}
+
+@media(max-width:900px){
+  .portada{padding:44px 0 60px}
+  .portada .envoltura{grid-template-columns:1fr;gap:44px}
+  .retrato{max-width:340px}
+  .pregunta-caja{min-height:170px}
+}
+
+/* ============================================================
+   SERVICIOS
+   ============================================================ */
+.servicios{background:var(--pino);color:var(--niebla);padding:84px 0}
+.servicios .etiqueta{color:#D8AE71}
+.titulo-seccion{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(27px,3.4vw,38px);line-height:1.25;margin:10px 0 8px;
+}
+.bajada{color:var(--tinta-suave);max-width:56ch;font-size:17px}
+.servicios .bajada{color:#B9C7BF}
+
+.rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.tarjeta{
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(216,174,113,.28);
+  border-radius:2px;padding:32px 26px 28px;
+  display:flex;flex-direction:column;
+  transition:background .2s ease, border-color .2s ease;
+}
+.tarjeta:hover{background:rgba(255,255,255,.1);border-color:rgba(216,174,113,.6)}
+.tarjeta h3{font-family:var(--display);font-size:24px;font-weight:400;margin-bottom:12px}
+.tarjeta p{font-size:15.5px;color:#C4D0C9;flex:1;margin-bottom:20px}
+.tarjeta ul{list-style:none;font-size:15px;color:#C4D0C9;margin-bottom:22px}
+.tarjeta li{padding-left:18px;position:relative;margin-bottom:6px}
+.tarjeta li::before{content:'—';position:absolute;left:0;color:#D8AE71}
+.enlace-tarjeta{
+  font-weight:700;font-size:15px;text-decoration:none;color:#F0DCC0;
+  border-bottom:1.5px solid rgba(240,220,192,.4);padding-bottom:3px;align-self:flex-start;
+}
+.enlace-tarjeta:hover{border-color:#F0DCC0}
+@media(max-width:900px){ .rejilla{grid-template-columns:1fr} .servicios{padding:60px 0} }
+
+/* ============================================================
+   QUIÉN TE ACOMPAÑA
+   ============================================================ */
+.perfil{padding:88px 0}
+.perfil .envoltura{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+.perfil-texto p{margin-top:16px;color:var(--tinta-suave)}
+.credenciales{
+  list-style:none;margin-top:30px;border-top:1px solid var(--linea);
+}
+.credenciales li{
+  display:grid;grid-template-columns:110px 1fr;gap:20px;
+  padding:15px 0;border-bottom:1px solid var(--linea);font-size:15.5px;
+}
+.credenciales dt, .credenciales .rubro{
+  font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  font-weight:700;color:var(--laton);padding-top:3px;
+}
+.foto-secundaria{aspect-ratio:1/1;background:var(--linea);border-radius:2px;overflow:hidden}
+.foto-secundaria img{width:100%;height:100%;object-fit:cover}
+@media(max-width:900px){
+  .perfil{padding:60px 0}
+  .perfil .envoltura{grid-template-columns:1fr;gap:36px}
+  .foto-secundaria{max-width:280px}
+  .credenciales li{grid-template-columns:1fr;gap:4px}
+}
+
+/* ============================================================
+   PRIMER PASO (aquí el orden sí importa, por eso va numerado)
+   ============================================================ */
+.pasos{background:var(--bruma);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding:76px 0}
+.pasos-rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px}
+.paso{border-top:2px solid var(--pino);padding-top:18px}
+.paso .num{font-family:var(--display);font-size:38px;color:var(--laton);line-height:1;display:block;margin-bottom:8px}
+.paso h3{font-size:17px;font-weight:700;margin-bottom:7px}
+.paso p{font-size:15.5px;color:var(--tinta-suave)}
+@media(max-width:820px){ .pasos-rejilla{grid-template-columns:1fr;gap:28px} .pasos{padding:56px 0} }
+
+/* ============================================================
+   FORMULARIO
+   ============================================================ */
+.contacto{padding:88px 0}
+.contacto .envoltura{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.contacto-info p{margin-top:16px;color:var(--tinta-suave)}
+.dato{margin-top:24px}
+.dato .rubro{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--laton)}
+.dato a, .dato span{display:block;font-size:17px;text-decoration:none;margin-top:3px}
+.dato a:hover{color:var(--pino)}
+
+form{background:var(--bruma);border:1px solid var(--linea);border-radius:2px;padding:34px}
+.campo{margin-bottom:20px}
+.campo label{display:block;font-size:14px;font-weight:700;margin-bottom:7px}
+.campo input, .campo select, .campo textarea{
+  width:100%;font-family:var(--texto);font-size:16px;color:var(--tinta);
+  background:#fff;border:1px solid var(--linea);border-radius:2px;padding:13px 14px;
+}
+.campo textarea{resize:vertical;min-height:110px}
+.campo input:focus, .campo select:focus, .campo textarea:focus{
+  outline:none;border-color:var(--pino);box-shadow:0 0 0 3px rgba(42,83,71,.13);
+}
+form .boton{width:100%;justify-content:center}
+.aviso-form{font-size:13.5px;color:var(--tinta-suave);margin-top:14px;text-align:center}
+@media(max-width:900px){ .contacto{padding:60px 0} .contacto .envoltura{grid-template-columns:1fr;gap:36px} form{padding:26px} }
+
+/* ============================================================
+   PIE
+   ============================================================ */
+.pie{background:var(--tinta);color:#A8B5AE;padding:52px 0 40px;font-size:14.5px}
+.pie .envoltura{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
+.pie a{color:#DDE4DF;text-decoration:none}
+.pie a:hover{color:#fff}
+.pie-marca{font-family:var(--display);font-size:20px;color:#fff;margin-bottom:6px}
+.pie-legal{max-width:44ch;font-size:13px;line-height:1.55}
+
+/* --- barra fija de WhatsApp en celular --- */
+.wa-fijo{display:none}
+@media(max-width:700px){
+  .wa-fijo{
+    display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;
+    justify-content:center;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(230,233,227,.95);border-top:1px solid var(--linea);
+    backdrop-filter:blur(8px);
+  }
+  .wa-fijo .boton{width:100%;justify-content:center}
+  body{padding-bottom:86px}
+}
+
+/* --- animación de entrada --- */
+.entra{opacity:0;transform:translateY(14px);animation:sube .8s ease forwards}
+.entra:nth-child(2){animation-delay:.1s}
+.entra:nth-child(3){animation-delay:.2s}
+@keyframes sube{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .entra{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= BARRA SUPERIOR ================= -->
+<header class="barra">
+  <div class="envoltura">
+    <a href="#" class="marca">Chelis Torres<span>Psicoterapia · Cursos · Talleres</span></a>
+    <nav class="menu">
+      <a href="#servicios">Servicios</a>
+      <a href="#perfil">Quién te acompaña</a>
+      <a href="#contacto">Contacto</a>
+      <a class="boton boton--wa" data-wa="Hola José Luis, vi tu página y me gustaría más información.">
+        <svg class="icono-wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.42 1.31-1.96 1.36-.5.05-1.13.07-1.83-.11-.42-.11-.96-.29-1.66-.59-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.01.9 2.16.07.14.12.31.02.5-.09.2-.14.32-.29.49-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.29.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.2.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= PORTADA ================= -->
+<section class="portada">
+  <div class="envoltura">
+    <div>
+      <p class="etiqueta entra">Zapopan, Jalisco · También en línea</p>
+      <div class="pregunta-caja entra">
+        <!-- Las preguntas se cambian abajo, en la sección CONFIGURACIÓN -->
+        <h1 class="pregunta" id="pregunta">¿Por qué me cuesta tanto poner límites?</h1>
+      </div>
+      <p class="entrada entra">Así empieza casi todo: con una pregunta que llevas tiempo cargando. Acompaño a personas y a equipos de trabajo a ponerle nombre a lo que sienten y a hacer algo distinto con ello.</p>
+      <div class="acciones entra">
+        <a class="boton boton--wa" data-wa="Hola José Luis, vi tu página y quiero contarte lo que me está pasando.">
+          <svg class="icono-wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.42 1.31-1.96 1.36-.5.05-1.13.07-1.83-.11-.42-.11-.96-.29-1.66-.59-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.01.9 2.16.07.14.12.31.02.5-.09.2-.14.32-.29.49-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.29.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.2.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+          Escribir por WhatsApp
+        </a>
+        <span class="nota-respuesta">Respondo el mismo día, de lunes a sábado.</span>
+      </div>
+    </div>
+
+    <div class="retrato entra">
+      <figure>
+        <div class="sin-foto">
+          <strong>Aquí va tu foto</strong>
+          Guarda tu fotografía en la misma carpeta con el nombre <b>foto.jpg</b> y aparecerá sola.
+        </div>
+        <!-- EDITA AQUÍ: tu fotografía -->
+        <img src="foto.jpg" alt="Retrato de Chelis Torres" onerror="this.remove()">
+      </figure>
+      <div class="marco"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICIOS ================= -->
+<section class="servicios" id="servicios">
+  <div class="envoltura">
+    <p class="etiqueta">En qué puedo acompañarte</p>
+    <h2 class="titulo-seccion">Tres formas de trabajar juntos</h2>
+    <p class="bajada">Elige la que se parezca más a lo que necesitas hoy. Si no estás seguro, escríbeme y lo vemos.</p>
+
+    <div class="rejilla">
+      <!-- EDITA AQUÍ: cada tarjeta -->
+      <article class="tarjeta">
+        <h3>Consulta psicológica</h3>
+        <p>Sesiones individuales con enfoque cognitivo-conductual, presenciales en Zapopan o por videollamada.</p>
+        <ul>
+          <li>Ansiedad y estrés</li>
+          <li>Autoestima y límites</li>
+          <li>Duelo y cambios de vida</li>
+          <li>Relaciones de pareja y familia</li>
+        </ul>
+        <a class="enlace-tarjeta" data-wa="Hola Chelis, me interesa agendar una consulta psicológica.">Agendar una sesión →</a>
+      </article>
+
+      <article class="tarjeta">
+        <h3>Talleres para empresas</h3>
+        <p>Talleres presenciales y en línea para equipos de trabajo, con ejercicios prácticos y materiales descargables.</p>
+        <ul>
+          <li>Liderazgo y manejo de equipos</li>
+          <li>Comunicación y manejo de conflictos</li>
+          <li>Manejo del estrés laboral</li>
+          <li>Diseño a la medida de tu empresa</li>
+        </ul>
+        <a class="enlace-tarjeta" data-wa="Hola Chelis, quiero información sobre talleres para mi empresa.">Pedir una propuesta →</a>
+      </article>
+
+      <article class="tarjeta">
+        <h3>Cursos y grupos</h3>
+        <p>Programas abiertos, en grupo pequeño, para desarrollar habilidades que se practican y se llevan a la vida diaria.</p>
+        <ul>
+          <li>Habilidades blandas</li>
+          <li>Inteligencia emocional</li>
+          <li>Crianza y desarrollo infantil</li>
+          <li>Grupos de crecimiento personal</li>
+        </ul>
+        <a class="enlace-tarjeta" data-wa="Hola Chelis, quiero saber las fechas del próximo curso.">Ver próximas fechas →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUIÉN TE ACOMPAÑA ================= -->
+<section class="perfil" id="perfil">
+  <div class="envoltura">
+    <div class="foto-secundaria">
+      <!-- EDITA AQUÍ: una segunda foto, por ejemplo dando un taller -->
+      <img src="foto-taller.jpg" alt="Chelis Torres impartiendo un taller" onerror="this.parentElement.remove()">
+    </div>
+
+    <div class="perfil-texto">
+      <p class="etiqueta">Quién te acompaña</p>
+      <h2 class="titulo-seccion">Chelis Torres</h2>
+      <!-- EDITA AQUÍ: tu biografía, con tus propias palabras -->
+      <p>Soy consultor en desarrollo humano y habilidades blandas, facilitador de talleres empresariales y psicoterapeuta  con enfoque cognitivo-conductual.</p>
+      <p>He acompañado a equipos comerciales, de manufactura y de servicio a mejorar la forma en que se comunican, se organizan y sostienen la presión del trabajo. En consulta trabajo con un estilo cálido y directo a la vez: te escucho sin juicio, y también te sostengo cuando toca hacer algo distinto.</p>
+      <p>Creo que el cambio no llega por entender más, sino por practicar diferente. Por eso mis sesiones y mis talleres siempre terminan con algo concreto que puedas hacer esta semana.</p>
+
+      <ul class="credenciales">
+        <!-- EDITA AQUÍ: tu formación real -->
+        <li><span class="rubro">Formación</span><span>Licenciatura en Psicología · [UNITEC 2006]</span></li>
+        <li><span class="rubro">Enfoque</span><span>Terapia cognitivo-conductual, terapia de esquemas y desarrollo humano</span></li>
+        <li><span class="rubro">Experiencia</span><span>[20] años facilitando programas de capacitación en empresas</span></li>
+        <li><span class="rubro">Atiende</span><span>Adolescentes, personas adultas y equipos de trabajo</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRIMER PASO ================= -->
+<section class="pasos">
+  <div class="envoltura">
+    <p class="etiqueta">Cómo empezamos</p>
+    <h2 class="titulo-seccion">El primer paso es más sencillo de lo que parece</h2>
+
+    <div class="pasos-rejilla">
+      <div class="paso">
+        <span class="num">1</span>
+        <h3>Me escribes</h3>
+        <p>Por WhatsApp o con el formulario de abajo. No necesitas explicarlo todo ni tener claro qué te pasa.</p>
+      </div>
+      <div class="paso">
+        <span class="num">2</span>
+        <h3>Conversamos 10 minutos</h3>
+        <p>Sin costo. Me cuentas qué estás buscando y te digo con honestidad si puedo ayudarte o si conviene otra opción.</p>
+      </div>
+      <div class="paso">
+        <span class="num">3</span>
+        <h3>Agendamos</h3>
+        <p>Acordamos día, modalidad y honorarios. Y empezamos a trabajar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="contacto" id="contacto">
+  <div class="envoltura">
+    <div class="contacto-info">
+      <p class="etiqueta">Contacto</p>
+      <h2 class="titulo-seccion">Escríbeme y lo conversamos</h2>
+      <p>Llena el formulario y se abrirá tu WhatsApp con el mensaje ya escrito. Solo le das enviar.</p>
+
+      <!-- EDITA AQUÍ: tus datos de contacto -->
+      <div class="dato">
+        <span class="rubro">WhatsApp</span>
+        <a data-wa="Hola Chelis, vi tu página y me gustaría más información." id="tel-visible">+52 33 1397 4617</a>
+      </div>
+      <div class="dato">
+        <span class="rubro">Correo</span>
+        <a href="mailto:chelistorres@gmail.com" id="correo-visible">chelistorres@gmail.com</a>
+      </div>
+      <div class="dato">
+        <span class="rubro">Modalidad</span>
+        <span>Consultorio en Zapopan, Jalisco · Sesiones en línea a toda la República</span>
+      </div>
+      <div class="dato">
+        <span class="rubro">Horario</span>
+        <span>Lunes a viernes de 9:00 a 6:00 · Sábados de 9:00 a 14:00</span>
+      </div>
+    </div>
+
+    <form id="formulario">
+      <div class="campo">
+        <label for="nombre">¿Cómo te llamas?</label>
+        <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Tu nombre">
+      </div>
+      <div class="campo">
+        <label for="interes">¿Sobre qué quieres escribirme?</label>
+        <select id="interes" name="interes">
+          <option>Una consulta psicológica</option>
+          <option>Un taller para mi empresa</option>
+          <option>Un curso o grupo</option>
+          <option>Todavía no lo tengo claro</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="mensaje">Cuéntame un poco <span style="font-weight:400;color:var(--tinta-suave)">(opcional)</span></label>
+        <textarea id="mensaje" name="mensaje" placeholder="Lo que quieras compartirme antes de hablar."></textarea>
+      </div>
+      <button type="submit" class="boton boton--wa">
+        <svg class="icono-wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.42 1.31-1.96 1.36-.5.05-1.13.07-1.83-.11-.42-.11-.96-.29-1.66-.59-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.01.9 2.16.07.14.12.31.02.5-.09.2-.14.32-.29.49-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.29.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.2.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+        Enviar por WhatsApp
+      </button>
+      <p class="aviso-form">Tus datos no se guardan en esta página: se convierten en un mensaje de WhatsApp que tú envías.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= PIE ================= -->
+<footer class="pie">
+  <div class="envoltura">
+    <div>
+      <div class="pie-marca">Chelis Torres</div>
+      <div>Psicoterapia · Cursos · Talleres · Zapopan, Jalisco</div>
+    </div>
+    <div>
+      <!-- EDITA AQUÍ: tus redes sociales -->
+      <a href="https://facebook.com/" target="_blank" rel="noopener">Facebook</a> ·
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a> ·
+      <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="pie-legal">La información de este sitio es orientativa y no sustituye una valoración profesional. Si estás en una situación de urgencia, marca al 911 o a la Línea de la Vida: 800 911 2000.</p>
+  </div>
+</footer>
+
+<div class="wa-fijo">
+  <a class="boton boton--wa" data-wa="Hola José Luis, vi tu página y me gustaría más información.">
+    <svg class="icono-wa" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.42 1.31-1.96 1.36-.5.05-1.13.07-1.83-.11-.42-.11-.96-.29-1.66-.59-2.92-1.26-4.82-4.2-4.97-4.4-.14-.2-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.01.9 2.16.07.14.12.31.02.5-.09.2-.14.32-.29.49-.14.17-.3.38-.43.51-.14.14-.29.3-.13.58.17.29.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.2.72-.84.92-1.13.19-.29.39-.24.65-.14.27.1 1.69.8 1.98.94.29.14.48.22.55.34.07.12.07.7-.17 1.38z"/></svg>
+    Escribir por WhatsApp
+  </a>
+</div>
+
+<script>
+/* ==================================================================
+   CONFIGURACIÓN — esto es lo único indispensable que debes cambiar
+   ================================================================== */
+const CONFIG = {
+  // Tu número CON código de país, solo dígitos, sin +, sin espacios.
+  // México: 52 + los 10 dígitos.  Ejemplo: 523312345678
+  whatsapp: "523313974617",
+
+  // Cómo quieres que se vea escrito el número en la página
+  telefonoVisible: "+52 33 1397 4617",
+
+  // Tu correo
+  correo: "chelistorres@gmail.com",
+
+  // Las preguntas que van rotando en la portada. Agrega o quita las que quieras.
+  preguntas: [
+    "¿Por qué me cuesta tanto poner límites?",
+    "¿Cómo dejo de llevarme el trabajo a la cama?",
+    "¿Qué hago con la ansiedad antes de una junta?",
+    "¿Cómo logro que mi equipo se comprometa?",
+    "¿Se puede aprender a conversar distinto en casa?"
+  ]
+};
+/* ================= de aquí para abajo no necesitas tocar nada ================= */
+
+// 1. Arma todos los enlaces de WhatsApp
+document.querySelectorAll('[data-wa]').forEach(el => {
+  el.setAttribute('href', 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(el.dataset.wa));
+  el.setAttribute('target', '_blank');
+  el.setAttribute('rel', 'noopener');
+});
+
+// 2. Escribe tus datos de contacto
+const tel = document.getElementById('tel-visible');
+if (tel) tel.textContent = CONFIG.telefonoVisible;
+const mail = document.getElementById('correo-visible');
+if (mail) { mail.textContent = CONFIG.correo; mail.setAttribute('href', 'mailto:' + CONFIG.correo); }
+
+// 3. Rota las preguntas de la portada
+const cajaPregunta = document.getElementById('pregunta');
+const menosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (cajaPregunta && CONFIG.preguntas.length) {
+  cajaPregunta.textContent = CONFIG.preguntas[0];
+  if (!menosMovimiento && CONFIG.preguntas.length > 1) {
+    let i = 0;
+    setInterval(() => {
+      cajaPregunta.style.opacity = 0;
+      setTimeout(() => {
+        i = (i + 1) % CONFIG.preguntas.length;
+        cajaPregunta.textContent = CONFIG.preguntas[i];
+        cajaPregunta.style.opacity = 1;
+      }, 600);
+    }, 5200);
+  }
+}
+
+// 4. El formulario se convierte en un mensaje de WhatsApp
+const formulario = document.getElementById('formulario');
+if (formulario) {
+  formulario.addEventListener('submit', e => {
+    e.preventDefault();
+    const nombre  = document.getElementById('nombre').value.trim();
+    const interes = document.getElementById('interes').value;
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    let texto = 'Hola José Luis, soy ' + nombre + '. Te escribo por: ' + interes + '.';
+    if (mensaje) texto += ' ' + mensaje;
+
+    window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+  });
+}
+</script>
+</body>
+</html>
